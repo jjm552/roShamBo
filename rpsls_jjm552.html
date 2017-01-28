@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ro Sahm bo</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="jumbotron">
+					<h1 class="text-center">Behold the awesomeness of: <br><br>Rock, Paper, Sissors, Lizard, Spock! <br> <small>Press: r, p, s, l, v(spock) for your play</small></h1>
+					<div class="row">
+						<div class="col-md-4">
+							<div id="rpsls"></div>
+						</div>
+						<div class="col-md-4">
+							<div id="plays"></div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+	<script type="text/javascript">
+	
+	var computerChoices = ["r", "p", "s", "l", "v"];
+
+	var wins = 0;
+	var losses = 0;
+	var ties = 0;
+
+	document.onkeyup = function(event){
+
+		var userGuess = event.key;
+
+		var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+		if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s") || (userGuess === "l") || (userGuess=== "v")){
+
+			if ((userGuess === "r") && (computerGuess === "p")){
+				wins++;
+			}
+			else if ((userGuess === "r") && (computerGuess === "s")){
+				wins++;
+			}
+			else if ((userGuess === "r") && (computerGuess === "l")){
+				wins++;
+			}
+			else if ((userGuess === "r") && (computerGuess === "v")){
+				losses++;
+			}
+			else if ((userGuess === "p") && (computerGuess === "r")){
+				wins++;
+			}
+			else if ((userGuess === "p") && (computerGuess === "s")){
+				losses++;
+			}
+			else if ((userGuess === "p") && (computerGuess === "l")){
+				losses++;
+			}
+			else if ((userGuess === "p") && (computerGuess === "v")){
+				wins++;
+			}
+			else if ((userGuess === "s") && (computerGuess === "r")){
+				losses++;
+			}
+			else if ((userGuess === "s") && (computerGuess === "p")){
+				wins++;
+			}
+			else if (( userGuess === "s") && (computerGuess === "l")){
+				wins++;
+			}
+			else if ((userGuess === "s") && (computerGuess === "v")){
+				losses++;
+			}
+			else if ((userGuess === "l") && (computerGuess === "r")){
+				losses++;
+			}
+			else if ((userGuess === "l") && (computerGuess === "p")){
+				wins++;
+			}
+			else if ((userGuess === "l") && (computerGuess === "s")){
+				losses++;
+			}
+			else if ((userGuess === "l") && (computerGuess === "v")){
+				wins++;
+			}
+			else if ((userGuess === "v") && (computerGuess === "r")){
+				wins++;
+			}
+			else if ((userGuess === "v") && (computerGuess === "p")){
+				losses++;
+			}
+			else if ((userGuess === "v") && (computerGuess === "s")){
+				wins++;
+			}
+			else if ((userGuess === "v") && (computerGuess === "l")){
+				losses++;
+			}
+			else if (userGuess === computerGuess){
+				ties++;
+			}
+
+			var html1 = "<p>Wins: " + wins + "</p>" +
+			"<p>Losses: " + losses + "</p>" +
+			"<p>Ties: " + ties + "</p>";
+
+			document.querySelector("#rpsls").innerHTML = html1;
+
+			var html2 = "<p>Player: " + userGuess + "</p>" +
+			"<p>Computer: " + computerGuess + "</p>";
+
+			document.querySelector("#plays").innerHTML = html2;
+		}
+	};
+
+
+
+
+	</script>
+
+</body>
+</html>
